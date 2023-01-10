@@ -1,0 +1,31 @@
+{% extends 'base-for-admin-message.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div style="background-color: #B8B8B8;height:550px;">
+<h2 style="text-decoration-color: black;text-align: center;margin-top: 0px;"> Messages </h2>
+<table style="margin-left: 50px; margin-right: 100px;" class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th>S.N.</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Email</th>
+            <th>Message</th>
+        </thead>
+        <tbody>
+        {% for msg in mesges %}
+           <td><strong>{{ forloop.counter }} </strong></td>
+           <td><strong>{{ msg.name }} </strong></td>
+           <td><strong>{{ msg.number }}</strong>
+           <td><strong>{{ msg.mail}}</strong></td>
+           <td><strong>{{ msg.mesge}}</strong></td>
+        {% endfor %}
+        </tbody>
+        </table>
+
+</div>
+
+{% endblock %}

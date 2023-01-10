@@ -1,0 +1,112 @@
+{% extends 'baseforexplore.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div style="background-color: #B8B8B8;margin-top: 0px;height: 100%">
+<section>
+<div style="height: 300px;">
+<article class="media">
+
+  
+
+   <div class="media-content">
+
+    <div style="margin-top: -10px"class="content">
+      <h1 style="font-weight: bold;margin-top: 120px" class="title is-1">{% if profile.first_name %}{{ profile.first_name }} {{ profile.last_name }} {% endif %}</h1>
+      <h2 style="font-weight: bold;margin-top: 0px"class="subtitle is-3">{{ profile.user }}</h2>
+
+    
+
+    
+
+    </div>
+
+
+     <form>
+      
+  <div  style="width: 400px; margin-left: 37%;margin-top: 150px;"class="control">
+    <input class="input is-large" name="q" type="text" placeholder="Search users..." value="{{ request.GET.q }}">
+  </div>
+  <div class="text-center">
+  <div class="control">
+    <button style="margin-top: 15px; width: 100px;height: 35px;"type="submit" class="button is-success">Search</button>
+  </div>
+</div>
+  </form>
+
+<p style="font-weight: bold;text-transform:uppercase" class="subtitle is-5">{% if profile.profile_info %}{{ profile.profile_info }}{% endif %}</p>
+
+
+
+ </div>
+
+</article>
+
+
+</div>
+
+
+
+
+   
+  </section>
+
+
+
+  <section  class="section">
+    <div class="container">
+
+  <div class="tabs is-centered">
+  <ul>
+    <li class="{% if url_name == 'profile' %}is-active{% endif %}">
+      <a href="#"><i class="material-icons">dashboard</i>Your Searched Destinations</a>
+    </li>
+
+    
+  </ul>
+</div>
+
+
+    <div class="columns is-mobile is-multiline is-centered">
+      
+    {% for destination in destinations %}
+      <div class="column is-one-quarter">
+        <div class="box">
+
+  
+    <figure class="image is-4by3">
+      <a href="{% url 'destination_detail' destination.id %}">
+        <img src="{{ destination.picture.url }}" alt="Placeholder image">
+      </a>
+
+    </figure>
+      <span style="color: black;">Place: {{destination.name}}</span><br>
+      <span maxlength="50" style="width: 10px; color: black;">Description:{{destination.description}}</span>
+          
+    
+
+  
+
+
+
+
+    </div>
+      </div>
+    {% empty %}
+      <br>
+      <h3 class="title is-3">Please Search Your Desired Destination in the Above Box!</h3>
+    {% endfor %}
+
+
+
+      </div>
+
+</div>
+
+  </section>
+
+</div>
+
+{% endblock %}

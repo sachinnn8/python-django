@@ -79,9 +79,13 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'SiteTravel',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
     }
+
 }
 
 
@@ -129,7 +133,12 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bibektajpuriya.878@gmail.com'
+EMAIL_HOST_PASSWORD = 'haknepmebleocpus'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
@@ -138,3 +147,5 @@ LOGIN_URL = '/user/login/'
 
 #Celery Broker
 CELERY_BROKER_URL = 'amqp://localhost:5672'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

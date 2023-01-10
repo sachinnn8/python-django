@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Site</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/icomoon.css'%}">
+  
+    <link rel="stylesheet" href="{% static 'assets/css/superfish.css'%}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/style1.css'%}">
+  </head>
+
+  <div id="fh5co-wrapper">
+    <div id="fh5co-page">
+    <div id="fh5co-header">
+      <header id="fh5co-header-section">
+        <div class="container">
+          <div class="nav-header">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <h1 id="fh5co-logo"><a href="{% url 'home' %}">Travel</a></h1>
+            <!-- START #fh5co-menu-wrap -->
+            <nav id="fh5co-menu-wrap" role="navigation">
+              <ul class="sf-menu" id="fh5co-primary-menu">
+                <li>
+                  <a href="{% url 'home' %}">Home</a>
+                </li>
+                                <li>
+                  <a href="{% url 'explore' %}">Explore</a>
+                  
+                </li>
+                <li>
+                  <a href="{% url 'destination_list' %}">Listing</a>
+                  
+                </li>
+
+                <li>
+                <a href="{% url 'profile' request.user %}" >Profile - <strong>{{ request.user }}</strong></a>
+              </li>
+
+
+                <li class="active">
+                  <a href="#" class="fh5co-sub-ddown">Settings</a>
+                   <ul class="fh5co-sub-menu">
+                    <li><a href="{% url 'mesge' %}">Message</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+                </li>
+            </nav>
+          </div>
+        </div>
+      </header>
+      
+    </div>
+    <div style='height:90px;'class="fh5co-hero">
+      <div class="fh5co-overlay"></div>
+       
+
+
+        
+      </div>
+
+    </div>
+
+  <body style="background-image: url({% static 'images/background.jpg'%});height: 870px; ">
+
+
+  <section class="section">
+    <div style="opacity: 0.8; margin-top:50px;" class="container">
+
+<div class="columns is-mobile has-text-centered">
+  <div class="column is-half is-offset-one-quarter">
+
+    <div class="card">
+    <div class="card-content">
+
+    <form method="post" action="" role="form">
+    {% csrf_token %}
+    <h3 class="title is-3">Send Message</h3>
+
+            <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Name</label>
+                {{ form.name }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+            <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Email</label>
+                {{ form.mail }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+            <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-medium">Number</label>
+                {{ form.number }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+            <div class="field">
+              <p class="control has-icons-left">
+              <label class="label is-large">Message</label>
+                {{ form.mesge }}
+                <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+          </div>
+
+      <div class="row">
+        <div class="col s12">
+          <span style="color: red; font-weight: bold;">{{ form.errors }}</span>
+        </div>
+      </div>
+
+      <div class="field">
+      <p class="control">
+        <button type="submit" name="action" class="button is-success">
+          Send Message
+        </button>
+      </p>
+    </div>
+
+
+      </div>
+</div>
+
+
+    </div>
+  </section>
+
+    </form>
+  </div>
+
+  <footer>
+      <div id="footer">
+        <div class="container">
+          <div style='margin-top:40px;margin-left: 40%;', class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+              <p class="fh5co-social-icons">
+                <a href="#"><i class="icon-twitter2"></i></a>
+                <a href="#"><i class="icon-facebook2"></i></a>
+                <a href="#"><i class="icon-instagram"></i></a>
+                <a href="#"><i class="icon-dribbble2"></i></a>
+                <a href="#"><i class="icon-youtube"></i></a>
+              </p>
+              <p>Copyright 2021 <a href="#">Listing</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by Ram </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+

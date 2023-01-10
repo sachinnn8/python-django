@@ -5,6 +5,15 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 
+from django.contrib.auth import authenticate, login, logout
+from .auth import unauthenticated_user, admin_only, user_only
+
+from .forms import *
+from destinations.models import *
+
+from destinations.urls import *
+from django.contrib import messages
+
 from accounts.models import Profile
 from django.db import transaction
 from django.template import loader
@@ -20,18 +29,20 @@ def UserProfile(request, username):
 	user = get_object_or_404(User, username=username)
 	profile = Profile.objects.get(user=user)
 	email = user
+	book = Bookings.objects.filter(user=user)
 
 	
-	paginator = Paginator(posts, 8)
+	paginator = Paginator(book, 8)
 	page_number = request.GET.get('page')
 	posts_paginator = paginator.get_page(page_number)
 
-	template = loader.get_template('profile.html')
+	template = loader.get_template('profile2.html')
 
 	context = {
 		'posts': posts_paginator,
 		'profile':profile,
 		'email':email,
+		'books':book,
 	}
 
 	return HttpResponse(template.render(context, request))
@@ -58,6 +69,32 @@ def Signup(request):
 	return render(request, 'signup.html', context)
 
 
+@unauthenticated_user
+def login_user(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user = authenticate(request, username=data['username'], password= data['password'])
+            if user is not None:
+                if user.is_staff:
+                    login(request, user)
+                    return redirect('admin_dashboard')
+                elif not user.is_staff:
+                    login(request,user)
+                    return redirect('home')
+
+            else:
+                messages.add_message(request, messages.ERROR, "Invalid User Credentials")
+                return render(request, 'login.html', {'form_login': form})
+    context = {
+        'form_login': LoginForm,
+        'activate_login': 'active'
+    }
+    return render(request, 'login.html', context)
+
+
+
 @login_required
 def PasswordChange(request):
 	user = request.user
@@ -77,6 +114,29 @@ def PasswordChange(request):
 	}
 
 	return render(request, 'change_password.html', context)
+
+def PasswordChangeDone(request):
+	return render(request, 'change_password_done.html')
+
+@login_required
+def PasswordChangeAdmin(request):
+	user = request.user
+	if request.method == 'POST':
+		form = ChangePasswordForm(request.POST)
+		if form.is_valid():
+			new_password = form.cleaned_data.get('new_password')
+			user.set_password(new_password)
+			user.save()
+			update_session_auth_hash(request, user)
+			return redirect('change_password_done')
+	else:
+		form = ChangePasswordForm(instance=user)
+
+	context = {
+		'form':form,
+	}
+
+	return render(request, 'change_password_admin.html', context)
 
 def PasswordChangeDone(request):
 	return render(request, 'change_password_done.html')

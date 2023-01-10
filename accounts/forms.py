@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from accounts.models import Profile
 
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+
 def ForbiddenUsers(value):
 	forbidden_users = ['admin', 'css', 'js', 'authenticate', 'login', 'logout', 'administrator', 'root',
 	'email', 'user', 'join', 'sql', 'static', 'python', 'delete']

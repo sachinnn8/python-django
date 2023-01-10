@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  </head>
+  <body style="background-image: url({% static 'images/background.jpg'%});height: 870px;">
+
+
+  <section  class="section">
+    <div  class="container">
+
+<div class="columns is-mobile has-text-centered">
+  <div class="column is-half is-offset-one-quarter">
+
+    <div class="card">
+    <div class="card-content">
+
+          <form method="post" action="" role="form" enctype="multipart/form-data">
+          {% csrf_token %}
+           <h3 class="title is-3">Update Destinations</h3>
+
+
+           <div class="field">
+              <label class="label is-medium">Destination Name</label>
+              <div class="control">
+                {{ form.name }}
+              </div>
+          </div>
+
+          <div class="field">
+              <label class="label is-medium">Choose Destination Image</label>
+              <div class="file is-boxed">
+                {{ form.picture }}
+              </div>
+          </div>
+
+          <div class="field">
+              <label class="label is-medium">Description</label>
+              <div class="control">
+                {{ form.description }}
+              </div>
+          </div>
+           
+
+            
+
+      {% if form.errors %}
+      <div class="row">
+        <div class="col s12">
+          <span style="color: red; font-weight: bold;">Please Fill the Form Properly.</span>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="field">
+      <p class="control">
+        <button type="submit" value="login" class="button is-success">
+          Update Destinations
+        </button>
+      </p>
+    </div>
+
+
+  </form>
+
+
+
+    </div>
+    </div>
+    
+
+
+  </div>
+</div>
+
+
+    </div>
+  </section>
+
+  </body>
+</html>
+

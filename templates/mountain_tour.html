@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Travel</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+
+     <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css'%}">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{% static 'assets/css/icomoon.css'%}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css'%}">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="{% static 'assets/css/superfish.css'%}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/style1.css'%}">
+
+
+    <!-- Modernizr JS -->
+    <script src="{% static 'assets/js/modernizr-2.6.2.min.js'%}"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap-theme.min.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/fontAwesome.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/hero-slider.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/owl-carousel.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/datepicker.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/templatemo-style-mountain.css'%}">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <script src="{% static 'assets/js/vendor/vendor/modernizr-2.8.3-respond-1.4.2.min.js'%}"></script>
+    </head>
+
+<body>
+    <div id="fh5co-wrapper">
+        <div id="fh5co-page">
+        <div id="fh5co-header">
+            <header id="fh5co-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+                        <h1 id="fh5co-logo"><a href="{% url 'home' %}">Travel</a></h1>
+                        <!-- START #fh5co-menu-wrap -->
+                        <nav id="fh5co-menu-wrap" role="navigation">
+                            <ul class="sf-menu" id="fh5co-primary-menu">
+                                <li>
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                                                                <li>
+                                    <a href="{% url 'explore' %}">Explore</a>
+                                    
+                                </li>
+                                <li>
+                                    <a href="{% url 'destination_list' %}">Listing</a>
+                                    
+                                </li>
+
+                                <li>
+                                <a href="{% url 'profile' request.user %}" >Profile - <strong>{{ request.user }}</strong></a>
+                            </li>
+
+
+                                <li>
+                                    <a href="#" class="fh5co-sub-ddown">Settings</a>
+                                     <ul class="fh5co-sub-menu">
+                                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            
+        </div>
+
+        <div style='height:80px;background-color: black;'class="fh5co-hero">
+            <div class="fh5co-overlay"></div>
+             
+
+
+                
+            </div>
+
+        </div>
+    
+
+
+    <section  class="testimonial" id="testimonial-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div style="margin-left: 7px;" class="testimonial-image"></div>
+                </div>
+                <div class="col-md-8">
+                    <div id="owl-testimonial" class="owl-carousel owl-theme">
+                        <div class="item col-md-12">
+                            
+                            
+                            <h4>Mountain Tours</h4>
+                            <br>
+                            <p><em>"</em>Nepal with rich ancient cultures set against the most dramatic scenery in the world is a land of discovery and unique experience. For broad minded individuals who value an experience that is authentic and mesmerizing, Nepal is the ideal destination. Come and revel in the untouched and the undiscovered and uncover yourself.
+
+It is unsurpassed that the sheer diversity Nepal boasts, from steamy jungle and Terai to the icy peaks of the world’s highest mountains means that the range of activities on offer. Trekking, mountaineering, rafting in spectacular scenery are just three things Nepal is famous for. Activities as diverse as Elephant Polo and a micro-light flight through the Himalayas show that in Nepal, the only boundary is your imagination. With 15 National & Wildlife Parks (two are UNESCO Heritage sites) Nepal is one of the last places on earth you can spot the Asiatic rhinoceros and the Royal Bengal Tiger.<em>"</em></p>
+                        </div>
+                        <div class="item col-md-12">
+                            
+                            <h4>Religious Tour</h4>
+                            <br>
+                            <p><em>"</em>Nepal with rich ancient cultures set against the most dramatic scenery in the world is a land of discovery and unique experience. For broad minded individuals who value an experience that is authentic and mesmerizing, Nepal is the ideal destination. Come and revel in the untouched and the undiscovered and uncover yourself.
+
+It is unsurpassed that the sheer diversity Nepal boasts, from steamy jungle and Terai to the icy peaks of the world’s highest mountains means that the range of activities on offer. Trekking, mountaineering, rafting in spectacular scenery are just three things Nepal is famous for. Activities as diverse as Elephant Polo and a micro-light flight through the Himalayas show that in Nepal, the only boundary is your imagination. With 15 National & Wildlife Parks (two are UNESCO Heritage sites) Nepal is one of the last places on earth you can spot the Asiatic rhinoceros and the Royal Bengal Tiger.<em>"</em></p>
+                        </div>
+                        <div class="item col-md-12">
+                            
+                            <h4>Religious Tour</h4>
+                            <br>
+                            <p><em>"</em>Nepal with rich ancient cultures set against the most dramatic scenery in the world is a land of discovery and unique experience. For broad minded individuals who value an experience that is authentic and mesmerizing, Nepal is the ideal destination. Come and revel in the untouched and the undiscovered and uncover yourself.
+
+It is unsurpassed that the sheer diversity Nepal boasts, from steamy jungle and Terai to the icy peaks of the world’s highest mountains means that the range of activities on offer. Trekking, mountaineering, rafting in spectacular scenery are just three things Nepal is famous for. Activities as diverse as Elephant Polo and a micro-light flight through the Himalayas show that in Nepal, the only boundary is your imagination. With 15 National & Wildlife Parks (two are UNESCO Heritage sites) Nepal is one of the last places on earth you can spot the Asiatic rhinoceros and the Royal Bengal Tiger.<em>"</em></p>
+                        </div>
+                    </div>
+
+                        <span><a style="margin-left:41%;" class="btn btn-primary btn-lg" href="{% url 'category_destinations_mountain' %}">Destinations</a></span>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+<footer>
+            <div style="height: 350px;"id="footer">
+                <div class="container">
+                    <div style='margin-top:40px;', class="row">
+                        <div class="col-md-6 col-md-offset-3 text-center">
+                            <p class="fh5co-social-icons">
+                                <a href="#"><i class="icon-twitter2"></i></a>
+                                <a href="#"><i class="icon-facebook2"></i></a>
+                                <a href="#"><i class="icon-instagram"></i></a>
+                                <a href="#"><i class="icon-dribbble2"></i></a>
+                                <a href="#"><i class="icon-youtube"></i></a>
+                            </p>
+                            <p>Copyright 2021 <a href="#">Listing</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by Ram </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <!-- jQuery Easing -->
+    <script src="{% static 'assets/js/jquery.easing.1.3.js'%}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/js//bootstrap.min.js'%}"></script>
+    <!-- Waypoints -->
+    <script src="{% static 'assets/js/jquery.waypoints.min.js'%}"></script>
+    <!-- Stellar -->
+    <script src="{% static 'assets/js/jquery.stellar.min.js'%}"></script>
+    <!-- Superfish -->
+    <script src="{% static 'assets/js/hoverIntent.js'%}"></script>
+    <script src="{% static 'assets/js/superfish.js'%}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js'%}"></script>
+          
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'assets/js/vendor/vendor/jquery-1.11.2.min.js'%}"><\/script>')</script>
+
+    <script src="{% static 'assets/js/vendor/vendor/bootstrap.min.js'%}"></script>
+    
+    <script src="{% static 'assets/js/vendor/datepicker.js'%}"></script>
+    <script src="{% static 'assets/js/vendor/plugins.js'%}"></script>
+    <script src="{% static 'assets/js/vendor/main.js'%}"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() 
+    {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>

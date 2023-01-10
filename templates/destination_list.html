@@ -1,0 +1,35 @@
+{% extends 'baseforlisting.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+
+<div style="height: 500px;"class="container">
+    <div class="poetry mt-6">
+        <a style="text-decoration: none; color: black;" href="#"><h3 style="text-align: center;"></h3></a>
+        <div style="width: 1200px;" class="owl-carousel mt-5" id="book1">
+            {% for destination in destinations %}
+            <a href="{% url 'destination_detail' destination.id %}" class="btn">
+                <div class="item">
+                    <div class="book-card">
+                        <img style="height:140px; width: 220px;" src="{{ destination.picture.url }}" alt="{{destination.name}}">
+                        <span>
+                            <p style="margin-top:10px;color: whitesmoke;"> {{destination.name}}</p>
+                            
+                        </span>
+
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}
